@@ -1,0 +1,567 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000000;
+  color: #e0e0e0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Dock11', sans-serif;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0c040;
+}
+
+.download-btn {
+  background: #f0c040;
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: 'Dock11', sans-serif;
+  border-radius: 5px;
+}
+
+.download-btn:hover {
+  background: #d9a900;
+}
+
+
+.video-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.video-container::after {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  z-index: 2;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 3;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.overlay-text h1 {
+  font-family: 'Dock11', sans-serif;
+  font-weight: bold;
+  font-size: 7rem;
+  margin-bottom: 20px;
+}
+
+.overlay-text p {
+  font-family: 'Dock11', sans-serif;
+  font-size: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.download-link {
+  position: absolute;
+  top: 78%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.alamin-btn {
+  display: block;
+  margin: 50px auto;
+  width: fit-content;
+  background: #f0c040;
+  color: black;
+  padding: 15px 45px;
+  text-decoration: none;
+  font-family: 'Dock11', sans-serif;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.alamin-btn:hover {
+  background: #d9a900;
+}
+
+.transition-section {
+  height: 150px;
+  background: #000000;
+}
+
+.content {
+  padding: 50px;
+  background: #000000;
+}
+
+.content h1 {
+  text-align: center;
+  font-family: 'Dock11', sans-serif;
+  font-weight: bold;
+  font-size: 7rem;
+  scroll-margin-top: 100px;
+}
+
+.content h2 {
+  font-family: 'Dock11', sans-serif;
+  font-size: 3rem;
+  scroll-margin-top: 100px;
+}
+
+.content p {
+  text-align: left;
+  max-width: none;
+  margin: 20px 0;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ===== PAMAHIIN SECTION ===== */
+.pamahiin-section {
+  position: relative;
+  background-image: url("https://github.com/lansilog/website-assets/blob/main/stage_kapre.png?raw=true");
+  background-size: cover;
+  background-position: center 70%;
+  background-attachment: fixed;
+  padding: 100px 50px;
+}
+
+.pamahiin-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.pamahiin-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pamahiin-section h1 {
+  text-align: center;
+  font-family: 'Dock11', sans-serif;
+  font-weight: bold;
+  font-size: 7rem;
+  margin-bottom: 20px;
+}
+
+.pamahiin-section p {
+  text-align: center;
+}
+
+#pamahiinOutput {
+  min-height: 100px;
+  height: 150px;
+  max-width: 80%;
+  margin: 40px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 50px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #ffffff94,
+    0 0 10px #ffffffab,
+    0 0 20px #ffffff,
+    0 0 40px #ffffff;
+
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.about-section {
+  position: relative;
+  padding: 100px 50px;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.about-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-section p {
+  text-align: justify;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.about-image {
+  float: right;
+  width: 750px;
+  height: auto;
+  margin: 0 0 100px 20px;
+}
+
+.card-section {
+  padding: 100px 50px;
+}
+
+.card-section h1 {
+  font-size: 7rem;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Dock11', sans-serif;
+  font-weight: bold;
+  scroll-margin-top: 100px;
+}
+
+.card {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-bottom: 100px;
+}
+
+.card img {
+  width: 450px;
+  height: 600px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.card-text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card h2,
+.card p {
+  text-align: left;
+  font-size: 1.5rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 30px;
+  }
+
+  .overlay-text h1 {
+    font-size: 3rem;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .card img {
+    width: 100%;
+  }
+}
+
+
+.more-btn {
+  display: block;
+  margin: 50px auto;
+  width: fit-content;
+  background: #f0c040;
+  color: black;
+  padding: 15px 45px;
+  text-decoration: none;
+  font-family: 'Dock11', sans-serif;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.more-btn:hover {
+  background: #d9a900;
+}
+
+
+/*-------------------------------------------------------------------BOSSES-------------------------------------------------------------------------------------- */
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 60px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+.duwende-card {
+  background-image: url("https://github.com/lansilog/website-assets/blob/main/stage_duwende.png?raw=true");
+  background-size: cover;
+  background-position: center;
+}
+
+.manananggal-card {
+  background-image: url("https://github.com/lansilog/website-assets/blob/main/stage_manananggal.png?raw=true");
+  background-size: cover;
+  background-position: center;
+}
+
+.tikbalang-card {
+  background-image: url("https://github.com/lansilog/website-assets/blob/main/stage_tikbalang.png?raw=true");
+  background-size: cover;
+  background-position: center;
+}
+
+.bungisngis-card {
+  background-image: url("https://github.com/lansilog/website-assets/blob/main/stage_bungisngis.png?raw=true");
+  background-size: cover;
+  background-position: center;
+}
+
+.kapre-card {
+  background-image: url("https://github.com/lansilog/website-assets/blob/main/stage_kapre.png?raw=true");
+  background-size: cover;
+  background-position: center;
+}
+
+.diwata-card {
+  background-image: url("https://github.com/lansilog/website-assets/blob/main/stage_diwata.png?raw=true");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  max-width: 60%;
+}
+
+.card-text h2 {
+  font-family: 'Dock11', sans-serif;
+  font-size: 5rem;
+}
+
+.card-text p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+
+}
+
+.card img {
+  position: relative;
+  z-index: 1;
+  width: 350px;
+  height: auto;
+}
+
+.tikbalang-card img {
+  width: 280px;
+}
+.kapre-card img {
+  width: 450px;}
+
+.bungisngis-card img {
+  width: 400px;
+}
+
+/*--------------------------------------------------------------------------------------------stage------------------------------------------------------------------------------ */
+.stage-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  padding: 100px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.stage-card {
+  width: calc(33.33% - 40px);
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.stage-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage-card p {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-family: 'Dock11', sans-serif;
+  font-size: 1.5rem;
+  z-index: 2;
+}
+
+.stage-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+.stage-card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 40px rgb(217, 169, 0);
+}
+
+.stage-card:hover::after {
+  background: rgba(0,0,0,0.2);
+}
+
+.stage-card:active {
+  transform: scale(1.05);
+}
+
+.stage-bg {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.stage-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage-bg .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.stage-bg .content {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  top: 60%;
+  left: 10%;
+  transform: translateY(-50%);
+  text-align: left;
+  background: transparent;
+}
+
+.stage-bg .content h1 {
+  margin-bottom: 20px;
+  font-size: 4rem;
+  text-align: left;
+}

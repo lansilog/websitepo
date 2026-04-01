@@ -9,11 +9,46 @@ html {
 }
 
 body {
+  min-height: 100vh;
   background: #000000;
   color: #e0e0e0;
   font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
+a, button {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #f0c040;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  background: #111;
+  color: #f0c040;
+  padding: 12px 16px;
+  z-index: 1000;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
 
 .navbar {
   position: fixed;
@@ -46,6 +81,18 @@ body {
   transition: 0.3s;
 }
 
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.download-btn:hover,
+.download-btn:focus-visible,
+.more-btn:hover,
+.more-btn:focus-visible,
+.alamin-btn:hover,
+.alamin-btn:focus-visible {
+  color: #f0c040;
+  outline: none;
+}
+
 .nav-links a:hover {
   color: #f0c040;
 }
@@ -57,6 +104,14 @@ body {
   text-decoration: none;
   font-family: 'Dock11', sans-serif;
   border-radius: 5px;
+}
+
+.download-btn:focus-visible,
+.more-btn:focus-visible,
+.alamin-btn:focus-visible,
+.nav-links a:focus-visible {
+  outline: 3px solid #f0c040;
+  outline-offset: 3px;
 }
 
 .download-btn:hover {
@@ -277,34 +332,26 @@ video {
   margin: 0 0 100px 20px;
 }
 
-.card-section {
-  padding: 100px 50px;
-}
+@media (max-width: 768px) {
+  .about-section {
+    padding: 50px 20px;
+    text-align: center;
+  }
 
-.card-section h1 {
-  font-size: 7rem;
-  margin-bottom: 30px;
-  text-align: center;
-  font-family: 'Dock11', sans-serif;
-  font-weight: bold;
-  scroll-margin-top: 100px;
-}
+  .about-section p {
+    text-align: center;
+    margin: 0 auto 20px;
+    max-width: 760px;
+  }
 
-.card {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-  margin-bottom: 100px;
+  .about-image {
+    float: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 30px;
+    display: block;
+  }
 }
-
-.card img {
-  width: 450px;
-  height: 600px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.card-text {
   position: relative;
   z-index: 1;
   color: white;
@@ -324,21 +371,364 @@ video {
 
 
 
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .overlay-text {
+    left: 50%;
+    width: min(100%, 92vw);
+    max-width: 700px;
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  .overlay-text h1 {
+    font-size: 5rem;
+  }
+
+  .overlay-text p {
+    font-size: 1.3rem;
+  }
+
+  .video-container {
+    height: 80vh;
+  }
+
+  .download-link {
+    top: auto;
+    bottom: 6%;
+  }
+
+  .content,
+  .pamahiin-section,
+  .about-section,
+  .card-section {
+    padding: 40px 30px;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 30px;
+    float: none;
+  }
+
+  .card-section h1 {
+    font-size: 5rem;
+  }
+
+  .card {
+    gap: 20px;
+    padding: 30px;
+    height: auto;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-text {
+    max-width: 100%;
+  }
+
+  .card-text h2 {
+    font-size: 3rem;
+  }
+
+  .card-text p {
+    font-size: 1.4rem;
+  }
+
+  #pamahiinOutput {
+    font-size: 2rem;
+    max-width: 100%;
+  }
+
+  .stage-container {
+    padding: 80px 20px;
+    gap: 30px;
+  }
+
+  .stage-card {
+    width: calc(50% - 20px);
+  }
+}
+
 @media (max-width: 768px) {
   .logo img {
-    height: 30px;
+    height: 45px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .nav-links li {
+    width: auto;
+  }
+
+  .download-btn {
+    order: 2;
+    margin: 10px 0 0;
+  }
+
+  .video-container {
+    height: 70vh;
+  }
+
+  .overlay-text {
+    top: 40%;
+    left: 50%;
+    width: min(100%, 90vw);
+    transform: translate(-50%, -40%);
   }
 
   .overlay-text h1 {
     font-size: 3rem;
   }
 
+  .overlay-text p {
+    font-size: 1.1rem;
+  }
+
+  .download-link {
+    left: 50%;
+    bottom: 8%;
+    width: 80px;
+  }
+
+  .content,
+  .pamahiin-section,
+  .about-section,
+  .card-section {
+    padding: 30px 20px;
+  }
+
+  .pamahiin-section {
+    background-attachment: scroll;
+  }
+
+  .pamahiin-section h1 {
+    font-size: 3rem;
+  }
+
+  #pamahiinOutput {
+    font-size: 1.6rem;
+    height: auto;
+    margin: 30px auto;
+    min-height: 120px;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 30px;
+  }
+
+  .card-section h1 {
+    font-size: 4rem;
+  }
+
+  .content h1 {
+    font-size: 4.4rem;
+    line-height: 1.05;
+  }
+
   .card {
     flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 25px 15px;
   }
 
   .card img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .card-text {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .card-text h2,
+  .card-text p {
+    font-size: 1.4rem;
+  }
+
+  .more-btn,
+  .alamin-btn {
+    font-size: 1.2rem;
+    padding: 14px 30px;
+  }
+
+  .stage-container {
+    gap: 20px;
+    padding: 50px 15px;
+  }
+
+  .stage-card {
+    width: 100%;
+    aspect-ratio: unset;
+    border-radius: 20px;
+  }
+
+  .stage-card:hover {
+    transform: scale(1.05);
+  }
+
+  .stage-card p {
+    font-size: 1.2rem;
+  }
+
+  .stage-bg .content {
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .stage-bg .content h1 {
+    font-size: 2.8rem;
+  }
+
+  .stage-bg {
+    height: auto;
+  }
+
+  .stage-bg img {
+    height: auto;
+  }
+
+  .stage-bg .content {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90%, 90vw);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stage-bg .content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 15px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .overlay-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .overlay-text p {
+    font-size: 0.95rem;
+  }
+
+  .download-link {
+    bottom: 10%;
+    width: 70px;
+  }
+
+  .content,
+  .pamahiin-section,
+  .about-section,
+  .card-section {
+    padding: 20px 15px;
+  }
+
+  .pamahiin-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .card-section h1 {
+    font-size: 2.6rem;
+  }
+
+  .content h1 {
+    font-size: 2.6rem;
+    line-height: 1.1;
+  }
+
+  .content p,
+  .about-section p {
+    font-size: 1rem;
+  }
+
+  .card-text h2 {
+    font-size: 2rem;
+  }
+
+  .card-text p {
+    font-size: 1rem;
+  }
+
+  .nav-links a,
+  .download-btn,
+  .more-btn,
+  .alamin-btn {
+    font-size: 1rem;
+  }
+
+  .more-btn,
+  .alamin-btn {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+  .stage-bg {
+    height: auto;
+  }
+
+  .stage-bg .content {
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -48%);
+    width: min(94%, 94vw);
+    padding: 16px;
+    text-align: center;
+  }
+
+  .stage-bg .content h1 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  .stage-bg .content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 auto;
   }
 }
 
@@ -460,6 +850,38 @@ video {
 
 .bungisngis-card img {
   width: 400px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 25px 15px;
+    gap: 20px;
+  }
+
+  .card img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .card-text {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .card-text h2 {
+    font-size: 2.8rem;
+  }
+
+  .card-text p {
+    font-size: 1.3rem;
+  }
 }
 
 /*--------------------------------------------------------------------------------------------stage------------------------------------------------------------------------------ */
